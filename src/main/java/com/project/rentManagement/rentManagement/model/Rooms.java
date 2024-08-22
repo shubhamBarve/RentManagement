@@ -5,26 +5,25 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Data;
 
-import java.util.Date;
-
-@Data
 @Entity
-public class Tenants {
+public class Rooms {
     @Id
-    public int id;
+    int id;
 
     @Column
-    String name;
+    String room_number;
+
+    public enum RoomType {
+        Single,
+        Double;
+
+    }
+    @Column
+    RoomType room_type;
 
     @Column
-    String contact_number;
+    int base_rent;
 
-    @Column
-    int room_id;
 
-    @Column
-    Date join_date;
-
-    @Column
-    Date leave_out_date;
+    Data last_rent_update;
 }
