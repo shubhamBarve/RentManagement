@@ -3,9 +3,10 @@ package com.project.rentManagement.rentManagement.model;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import lombok.Data;
 
 import java.util.Date;
-
+@Data
 @Entity
 public class WaterReadings {
     @Id

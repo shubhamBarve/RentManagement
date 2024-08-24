@@ -1,10 +1,11 @@
 package com.project.rentManagement.rentManagement.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.Date;
+
+@Data
 @Entity
 public class Rooms {
     @Id
@@ -18,12 +19,13 @@ public class Rooms {
         Double;
 
     }
+    @Enumerated(EnumType.STRING)
     @Column
     RoomType room_type;
 
     @Column
     int base_rent;
 
-
-    Data last_rent_update;
+    @Column
+    Date last_rent_update;
 }

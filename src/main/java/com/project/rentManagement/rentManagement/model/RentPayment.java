@@ -7,7 +7,7 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 import java.util.Date;
-
+@Data
 @Entity
 @Table(name = "RentPayment")
 public class RentPayment {
