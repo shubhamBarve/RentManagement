@@ -9,7 +9,7 @@ import java.util.Set;
 public class Apartment {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer apartmentID;
 
     @Column(name = "ApartmentNumber", nullable = false)
@@ -17,6 +17,29 @@ public class Apartment {
 
     @Column(name = "Address")
     private String address;
+
+    @Column(name = "apartmentname", nullable = false)
+    private String apartmentname;
+
+    @Override
+    public String toString() {
+        return "Apartment{" +
+                "apartmentID=" + apartmentID +
+                ", apartmentNumber='" + apartmentNumber + '\'' +
+                ", address='" + address + '\'' +
+                ", apartmentname='" + apartmentname + '\'' +
+                ", owner=" + owner +
+                ", rooms=" + rooms +
+                '}';
+    }
+
+    public String getApartmentname() {
+        return apartmentname;
+    }
+
+    public void setApartmentname(String apartmentname) {
+        this.apartmentname = apartmentname;
+    }
 
     @ManyToOne
     @JoinColumn(name = "OwnerID", nullable = false)

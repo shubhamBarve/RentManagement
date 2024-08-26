@@ -17,9 +17,6 @@ public class Room {
     @Column(name = "Rent")
     private Double rent;
 
-    @Column(name = "Status", nullable = false)
-    @Enumerated(EnumType.STRING)
-    private RoomStatus status;
 
     @ManyToOne
     @JoinColumn(name = "ApartmentID", nullable = false)
@@ -53,13 +50,7 @@ public class Room {
         this.rent = rent;
     }
 
-    public RoomStatus getStatus() {
-        return status;
-    }
 
-    public void setStatus(RoomStatus status) {
-        this.status = status;
-    }
 
     public Apartment getApartment() {
         return apartment;
@@ -71,6 +62,17 @@ public class Room {
 
     public Tenant getTenant() {
         return tenant;
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "roomID=" + roomID +
+                ", roomNumber='" + roomNumber + '\'' +
+                ", rent=" + rent +
+                ", apartment=" + apartment +
+                ", tenant=" + tenant +
+                '}';
     }
 
     public void setTenant(Tenant tenant) {

@@ -11,6 +11,26 @@ public class ApartmentDto {
     private String apartmentNumber;
 
     private String address;
+    private String apartmentname;
+
+    @Override
+    public String toString() {
+        return "ApartmentDto{" +
+                "apartmentID=" + apartmentID +
+                ", apartmentNumber='" + apartmentNumber + '\'' +
+                ", address='" + address + '\'' +
+                ", apartmentname='" + apartmentname + '\'' +
+                ", owner=" + owner +
+                '}';
+    }
+
+    public String getApartmentname() {
+        return apartmentname;
+    }
+
+    public void setApartmentname(String apartmentname) {
+        this.apartmentname = apartmentname;
+    }
 
     private Owner owner;
 
@@ -46,13 +66,4 @@ public class ApartmentDto {
         this.owner = owner;
     }
 
-    @Override
-    public String toString() {
-        return "ApartmentDto{" +
-                "apartmentID=" + apartmentID +
-                ", apartmentNumber='" + apartmentNumber + '\'' +
-                ", address='" + address + '\'' +
-                ", owner=" + owner +
-                '}';
-    }
 }

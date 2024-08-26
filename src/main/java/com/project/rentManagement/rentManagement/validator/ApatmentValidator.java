@@ -27,7 +27,7 @@ public class ApatmentValidator {
         System.out.println(isOwnerexist);
         ModelMapper modelMapper = new ModelMapper();
         apartment1 = modelMapper.map(apartmentDto,Apartment.class);
-
+        System.out.println("Apartment"+apartment1);
          if(isOwnerexist)
           return    apartmentRepo.save(apartment1);
          else {
