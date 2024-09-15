@@ -13,13 +13,11 @@ public class TenantService {
 
     @Autowired
     TenantRepo tenantRepo;
-    public Tenant addTenant(TenantDto tenants){
+    public Tenant addTenant(Tenant tenants){
 
-        ModelMapper modelMapper = new ModelMapper();
-        //Tenant tenants1 = modelMapper.map(tenants,Tenants.class);
-       // System.out.println( tenantRepo.findRoomIdByTenantId(8));
-        return null;
-     //return tenantRepo.save(tenants1);
+        System.out.println(tenants);
+
+     return tenantRepo.save(tenants);
     }
 
 }

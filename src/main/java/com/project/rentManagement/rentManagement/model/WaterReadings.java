@@ -1,9 +1,6 @@
 package com.project.rentManagement.rentManagement.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Date;
@@ -12,16 +9,16 @@ import java.util.Date;
 @Table(name = "WaterReadings")
 public class WaterReadings {
     @Id
-    int id;
+    private int id;
 
     @Column
-    int room_id;
+    private int roomID;
 
     @Column
-    Date reading_date;
+    private java.sql.Date reading_date;
 
     @Column
-    int reading_value;
+    private int reading_value;
 
 
 }

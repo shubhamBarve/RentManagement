@@ -27,6 +27,8 @@ public class Invoice {
     @Column
     int electricity_cost;
 
+    @Column
+    int roomID;
 
     @Column
     int water_cost;

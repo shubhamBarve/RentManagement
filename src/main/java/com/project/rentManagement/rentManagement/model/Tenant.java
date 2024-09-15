@@ -7,7 +7,6 @@ import jakarta.persistence.*;
 public class Tenant {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer tenantID;
 
     @Column(name = "TenantName", nullable = false)
@@ -73,5 +72,17 @@ public class Tenant {
 
     public void setMoveOutDate(java.sql.Date moveOutDate) {
         this.moveOutDate = moveOutDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Tenant{" +
+                "tenantID=" + tenantID +
+                ", tenantName='" + tenantName + '\'' +
+                ", contactInfo='" + contactInfo + '\'' +
+                ", room=" + room +
+                ", moveInDate=" + moveInDate +
+                ", moveOutDate=" + moveOutDate +
+                '}';
     }
 }

@@ -19,8 +19,9 @@ public class RentPayment {
     int tenant_id;
 
     @Column
-    int room_id;
-
+    int roomID;
+    @Column
+    int paymentMade;
     @Column
     Date payment_date;
 
