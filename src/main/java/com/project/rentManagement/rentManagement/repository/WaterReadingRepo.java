@@ -10,6 +10,6 @@ import java.time.LocalDate;
 
 @Repository
 public interface WaterReadingRepo extends JpaRepository<WaterReadings,Integer> {
-    @Query("SELECT w FROM WaterReadings w WHERE w.reading_date = :date")
-    WaterReadings findByReadingDate(@Param("date") LocalDate date);
+    @Query("SELECT w FROM WaterReadings w WHERE w.reading_date = :date AND w.roomID=:roomID")
+    WaterReadings findByReadingDate(@Param("date") LocalDate date,@Param("roomID") int roomid);
 }

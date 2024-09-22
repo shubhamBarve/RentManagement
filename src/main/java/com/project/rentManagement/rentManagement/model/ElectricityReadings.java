@@ -10,14 +10,20 @@ import java.util.Date;
 public class ElectricityReadings {
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
-        Integer id;
+        private int id;
 
         @Column
-        int roomID;
+        private int roomID;
 
         @Column
-        java.sql.Date reading_date;
+       private java.sql.Date reading_date;
 
         @Column
-        int reading_value;
+        private int reading_value;
+
+        public int getRoomID() {
+                return roomID;
+        }
+
+
 }

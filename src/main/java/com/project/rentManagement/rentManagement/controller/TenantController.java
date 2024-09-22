@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
+import java.util.List;
 
 @RestController
 @RequestMapping("tenant/")
@@ -41,7 +42,7 @@ public class TenantController {
     public BasicResponse addWaterUnits(@RequestBody WaterReadings waterReadings){
 
         System.out.println(waterReadings);
-        System.out.println(getReadingForLastMonth());
+        System.out.println(getReadingForLastMonthWater(waterReadings));
        // waterReadingsReadingRepo.save(waterReadings);
 
 
@@ -54,17 +55,26 @@ return  null;
 
 
         System.out.println(electricityReadings);
-        //System.out.println(getReadingForLastMonth());
-        electricityRepo.save(electricityReadings);
+        System.out.println(getReadingForLastMonthElectricity(electricityReadings));
+
+       // electricityRepo.save(electricityReadings);
         return null;
     }
 
-    public WaterReadings getReadingForLastMonth() {
+    public WaterReadings getReadingForLastMonthWater(WaterReadings waterReadings) {
         LocalDate startOfLastMonth = YearMonth.now().minusMonths(1).atDay(1);
         System.out.println(startOfLastMonth+" asdal");
        // LocalDate endOfLastMonth = DateUtils.getEndOfLastMonth();
 
         // Assuming there's only one entry per month, fetching the entry for the start of the month
-        return waterReadingsReadingRepo.findByReadingDate(startOfLastMonth);
+        return waterReadingsReadingRepo.findByReadingDate(startOfLastMonth,waterReadings.getRoomID());
+    }
+    public List<ElectricityReadings> getReadingForLastMonthElectricity(ElectricityReadings electricityReadings) {
+        LocalDate startOfLastMonth = YearMonth.now().minusMonths(1).atDay(1);
+        System.out.println(startOfLastMonth+" <= Last month");
+        LocalDate endOfLastMonth =YearMonth.now().minusMonths(1).atEndOfMonth();;
+
+        // Assuming there's only one entry per month, fetching the entry for the start of the month
+        return electricityRepo.findByReadingDate(startOfLastMonth,endOfLastMonth,electricityReadings.getRoomID());
     }
 }
