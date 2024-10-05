@@ -25,6 +25,17 @@ public class Tenant {
     @Column(name = "MoveOutDate")
     private java.sql.Date moveOutDate;
 
+    @Column(name="mobilenumber", nullable = false)
+    private String mobilenumer;
+
+    public String getMobilenumer() {
+        return mobilenumer;
+    }
+
+    public void setMobilenumer(String mobilenumer) {
+        this.mobilenumer = mobilenumer;
+    }
+
     // Getters and setters
     public Integer getTenantID() {
         return tenantID;
@@ -75,7 +86,7 @@ public class Tenant {
     }
 
     @Override
-    public String toString() {
+    public String  toString() {
         return "Tenant{" +
                 "tenantID=" + tenantID +
                 ", tenantName='" + tenantName + '\'' +
@@ -83,6 +94,7 @@ public class Tenant {
                 ", room=" + room +
                 ", moveInDate=" + moveInDate +
                 ", moveOutDate=" + moveOutDate +
+                ", mobilenumer='" + mobilenumer + '\'' +
                 '}';
     }
 }
